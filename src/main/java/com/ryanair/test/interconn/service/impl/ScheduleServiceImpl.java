@@ -17,10 +17,9 @@ public class ScheduleServiceImpl implements ScheduleService{
         restTemplate = restTemplateBuilder.build();
     }
 
-    // TODO add parameters
 	@Override
-	public Schedule getSchedule() {
-		ResponseEntity<Schedule> response = restTemplate.getForEntity("https://api.ryanair.com/timetable/3/schedules/DUB/WRO/years/2018/months/6", Schedule.class);
+	public Schedule getSchedule(String departure, String arrival, int year, int month) {
+		ResponseEntity<Schedule> response = restTemplate.getForEntity("https://api.ryanair.com/timetable/3/schedules/" + departure + "/" + arrival + "/years/" + year + "/months/" + month, Schedule.class);
 		return response.getBody();
 	}
 

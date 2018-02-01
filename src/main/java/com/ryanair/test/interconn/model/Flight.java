@@ -1,20 +1,25 @@
 package com.ryanair.test.interconn.model;
 
-import java.util.List;
-
 public class Flight {
-	private int stops;
-	private List<Leg> legs;
-	public int getStops() {
-		return stops;
+	private String number;
+	private String departureTime;
+	private String arrivalTime;
+	public String getNumber() {
+		return number;
 	}
-	public void setStops(int stops) {
-		this.stops = stops;
+	public void setNumber(String number) {
+		this.number = number;
 	}
-	public List<Leg> getLegs() {
-		return legs;
+	public String getDepartureTime() {
+		return departureTime;
 	}
-	public void setLegs(List<Leg> legs) {
-		this.legs = legs;
+	public void setDepartureTime(String departureTime) {
+		this.departureTime = departureTime;
+	}
+	public String getArrivalTime() {
+		return arrivalTime;
+	}
+	public void setArrivalTime(String arrivalTime) {
+		this.arrivalTime = arrivalTime;
 	}
 }

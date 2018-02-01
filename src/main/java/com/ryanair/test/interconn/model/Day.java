@@ -4,17 +4,17 @@ import java.util.List;
 
 public class Day {
 	private int day;
-	private List<ScheduledFlight> flights;
+	private List<Flight> flights;
 	public int getDay() {
 		return day;
 	}
 	public void setDay(int day) {
 		this.day = day;
 	}
-	public List<ScheduledFlight> getFlights() {
+	public List<Flight> getFlights() {
 		return flights;
 	}
-	public void setFlights(List<ScheduledFlight> flights) {
+	public void setFlights(List<Flight> flights) {
 		this.flights = flights;
 	}
 }
