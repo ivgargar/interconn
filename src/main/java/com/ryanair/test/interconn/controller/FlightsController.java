@@ -2,6 +2,7 @@ package com.ryanair.test.interconn.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +29,12 @@ public class FlightsController {
 	public List<Flight> getInterconnections(@RequestParam String departure, @RequestParam String arrival,
 			@RequestParam String departureDateTime, @RequestParam String arrivalDateTime) {
 		List<Route> routes = routeService.getRoutes();
+		
+		List<Route> validRoutes = routes
+			.stream()
+			.filter(route -> route.getConnectingAirport() == null 
+					&& (route.getAirportFrom().equals(departure) || route.getAirportTo().equals(arrival)))
+			.collect(Collectors.toList());
 		
 		Schedule schedule = scheduleService.getSchedule();
 		
