@@ -3,7 +3,7 @@ package com.ryanair.test.interconn.service.impl;
 import java.util.Arrays;
 import java.util.List;
 
-import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -14,11 +14,8 @@ import com.ryanair.test.interconn.service.RouteService;
 @Service
 public class RouteServiceImpl implements RouteService{
 	
-	private final RestTemplate restTemplate;
-    
-    public RouteServiceImpl(RestTemplateBuilder restTemplateBuilder) {
-        restTemplate = restTemplateBuilder.build();
-    }
+	@Autowired
+	private RestTemplate restTemplate;
 
 	@Override
 	public List<Route> getRoutes() {

@@ -1,6 +1,6 @@
 package com.ryanair.test.interconn.service.impl;
 
-import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -11,11 +11,8 @@ import com.ryanair.test.interconn.service.ScheduleService;
 @Service
 public class ScheduleServiceImpl implements ScheduleService{
     
-	private final RestTemplate restTemplate;
-    
-    public ScheduleServiceImpl(RestTemplateBuilder restTemplateBuilder) {
-        restTemplate = restTemplateBuilder.build();
-    }
+	@Autowired
+	private RestTemplate restTemplate;
 
 	@Override
 	public Schedule getSchedule(String departure, String arrival, int year, int month) {
