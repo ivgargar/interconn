@@ -84,7 +84,7 @@ public class FlightsControllerTest {
 	public void testFlightsDepartureDayOnTime() throws Exception {
 		mockMvc.perform(get("/api/interconnections?departure=DUB&arrival=WRO&departureDateTime=2018-03-11T07:00&arrivalDateTime=2018-03-15T23:00"))
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$", hasSize(2)))
+			.andExpect(jsonPath("$", hasSize(5)))
 			.andExpect(jsonPath("$[0].stops", is(0)))
 			.andExpect(jsonPath("$[0].legs", hasSize(3)))
 			.andExpect(jsonPath("$[0].legs[0].departureAirport", is("DUB")))
@@ -95,11 +95,32 @@ public class FlightsControllerTest {
 			.andExpect(jsonPath("$[0].legs[2].arrivalAirport", is("WRO")))
 			
 			.andExpect(jsonPath("$[1].stops", is(1)))
-			.andExpect(jsonPath("$[1].legs", hasSize(8)))
+			.andExpect(jsonPath("$[1].legs", hasSize(2)))
 			.andExpect(jsonPath("$[1].legs[0].departureAirport", is("DUB")))
 			.andExpect(jsonPath("$[1].legs[0].arrivalAirport", is("STN")))
 			.andExpect(jsonPath("$[1].legs[1].departureAirport", is("STN")))
-			.andExpect(jsonPath("$[1].legs[1].arrivalAirport", is("WRO")));
+			.andExpect(jsonPath("$[1].legs[1].arrivalAirport", is("WRO")))
+		
+			.andExpect(jsonPath("$[2].stops", is(1)))
+			.andExpect(jsonPath("$[2].legs", hasSize(2)))
+			.andExpect(jsonPath("$[2].legs[0].departureAirport", is("DUB")))
+			.andExpect(jsonPath("$[2].legs[0].arrivalAirport", is("STN")))
+			.andExpect(jsonPath("$[2].legs[1].departureAirport", is("STN")))
+			.andExpect(jsonPath("$[2].legs[1].arrivalAirport", is("WRO")))
+			
+			.andExpect(jsonPath("$[3].stops", is(1)))
+			.andExpect(jsonPath("$[3].legs", hasSize(2)))
+			.andExpect(jsonPath("$[3].legs[0].departureAirport", is("DUB")))
+			.andExpect(jsonPath("$[3].legs[0].arrivalAirport", is("STN")))
+			.andExpect(jsonPath("$[3].legs[1].departureAirport", is("STN")))
+			.andExpect(jsonPath("$[3].legs[1].arrivalAirport", is("WRO")))
+			
+			.andExpect(jsonPath("$[4].stops", is(1)))
+			.andExpect(jsonPath("$[4].legs", hasSize(2)))
+			.andExpect(jsonPath("$[4].legs[0].departureAirport", is("DUB")))
+			.andExpect(jsonPath("$[4].legs[0].arrivalAirport", is("STN")))
+			.andExpect(jsonPath("$[4].legs[1].departureAirport", is("STN")))
+			.andExpect(jsonPath("$[4].legs[1].arrivalAirport", is("WRO")));
 	}
 	
 	@Test
